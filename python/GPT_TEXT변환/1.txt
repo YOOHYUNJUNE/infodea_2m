@@ -1,0 +1,40 @@
+------------------ 테이블정의서 출력 ------------------
+
+WITH T1 AS (SELECT A.TABLE_NAME,
+                      B.COMMENTS AS TABLE_COMMENT,
+                      C.COLUMN_NAME,
+                      C.DATA_TYPE AS COLUMN_TYPE,
+                      C.DATA_PRECISION,
+                      C.DATA_SCALE,
+                      C.DATA_LENGTH AS COLUMN_LENGTH,
+                      C.COLUMN_ID
+               FROM DBA.TABLES A
+               LEFT OUTER JOIN DBA_TAB_COMMENTS B
+               ON (A0.OWNER = B.OWNER AND A.TABLE_NAME = B.TABLE_NAME)
+               LEFT O UTER JOIN DBA_TAB_COLUMNS C
+               ON (A.OWNER = C.OWNER AND A.TABLE_NAME = C.TABLE_NAME)
+               WHERE A.OWNER = 'ICROWN'),
+T3 AS (
+               SELECT '12.운영물리모델/CA_028_책무구조도시스템' AS area1,
+                            CASE WHEN SUBSTR(T1.TABLE_NAME,8,3) = 'CMA' THEN '공통_권한정보'
+                                      WHEN SUBSTR(T1.TABLE_NAME,8,3) = 'CMG' THEN '공통_일반정보'
+                                      WHEN SUBSTR(T1.TABLE_NAME,8,3) = 'ATC' THEN '관리활동_통제활동'
+                                      WHEN SUBSTR(T1.TABLE_NAME,8,3) = 'ATI' THEN '관리활동_개선활동'
+                                      WHEN SUBSTR(T1.TABLE_NAME,8,3) = 'LDD' THEN '책무원장_임원정보'
+                                      WHEN SUBSTR(T1.TABLE_NAME,8,3) = 'LDP' THEN '책무원장_부서정보'
+                                      ELSE 'UNKNOWN'
+                            END area2,
+                            T1.TABLE_NAME,
+                            T1.TABLE_COMMENT,
+                            T1.COLUMN_NAME,
+                            'N' AS NULLABLE,
+                            T2.COMMENTS,
+                            T1.COLUMN_TYPE,
+                            CASE WHEN T1.COLUMN_TYPE = 'CHAR' THEN T1.COLUMN_LENGTH
+                                      WHEN T1.COLUMN_TYPE = 'VARCHAR' THEN T1.COLUMN_LENGTH
+                                      WHEN T1.COLUMN_TYPE = 'NVARCHAR' THEN T1.COLUMN_LENGTH
+                                      WHEN T1.COLUMN_TYPE = 'NUMBER' THEN T1.DATA_PRECISION
+                                      WHEN T1.COLUMN_TYPE = 'TIMESTAMP(0)' THEN 0
+                            END COLUMN_LENGTH,
+                            CASE WHEN T1.COLUMN_TYPE = 'NUMBER' THEN T1.DATA_SCALE
+

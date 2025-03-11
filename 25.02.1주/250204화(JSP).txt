@@ -1,0 +1,116 @@
+책무구조도
+
+책무: 금융회사 또는 금융회사 임직원이 준수해야하는 사항에 대한 "내부통제 및 위험관리의 집행 및 운영에 대한 책임"
+책무구조도: 금융회사의 내부통제 구조와 책임범위를 체계적으로 문서화하고 구조화한 것
+책무 배분 대상: 임원(대표이사, 의사회 의장인 사외이사, 감사, 집행의원, 업무집행책임자)
+		준법감시인, 위험관리책임자, 임원에 준하는 직원, 책무에 영향을 미치는 다른 회사 임원
+책무 배분 기준: 책무 담당 임원이 반드시 존재(누락X), 복수로 존재하지 않음(중복X), 책무를 충실히 이행하도록 적절히 배분(편중X)
+책무 이행 방법: 임원 -> 이사 -> 이사회
+책무구조도 직급별 역할:
+	-이사회: 내부통제 감독 > 내부통제 기본 방침, 전략 수립 및 기준 마련
+	-대표이사: 총괄관리 > 내부통제 정책, 기본방칙 및 전략의 집행운행. 인적, 물적 자원의 지원
+	-임원: 책무 > 관리의무, 관리조치, 기준 수립 및 점검, 준수여부 점검 및 모니터링, 미흡사항 개선/사후관리, 
+		교육 및 훈련, 내부통제 활동보고, 징계 및 징계요구
+	-소관부서: 내부통제 실행 > 부서 내부통제 활동
+		내부통제 활동 > 업무프로세스, 내부통제 담당자, 내부통제 활동주기, 내부통제 증적, 내부통제 활동보고, 미흡/개선사항 사후관리
+
+
+# 용어
+DA: Data Architect / 데이터 표준, 구조 등 DB설계자
+AA: Application Architect / 공통 로직, 개발 표준, 프레임워크 등 공통업무 설계자
+TA: Technical Architect / os, was, DB 설치 등 하드웨어와 네트워크 구축 담당자
+BA: Business Architect / 기술적 관점이 아닌 업무 관점의 프로세스 설계자
+QA: Quality Assurance / 산출물과 소스코드에 대한 품질 보증 담당자
+SSO: Single Sign-On / 1회 인증으로 다수의 앱 또는 웹에 로그인하는 기능 (서비스?)
+oAuth: 앱 또는 웹이 사용자 데이터를 안전하게 접근하게 하는 것 (인증 프로토콜?)
+e-HR: 전자 인적자원 / it 기술을 활용해 HR서비스를 제공하는 체제
+KPI: Key Performance Indicator / 핵심 성과지표
+FIDO: Fast Identity Onilne / 사용자 확인을 위한 암호 없는 인증. 스마트폰, USB토큰 또는 생체 인식 장치에 저장된 고유키로 사용자를 인증
+quick-win: 즉각적인 실행으로 성과를 창출하는 것
+Biz 아키텍처: business architecture / 요구사항 만족을 위한 시스템 개발 모델을 도식화하는 것
+MCA: Multi Channel Architecture / 기업 내 유사기종 시스템 연결 지원, 메시지 중계 기능
+FEP: Front End Processor / 메인프레임에서 통신 과부하를 경감하기 위해 전처리 하는 과정 /
+	내외부망 분리, 거래인증을 위한 키관리, 암호복호화, 고객 정보 처리 등을 담당 / 대외기관과의 연계
+EAI: Enterprise Application Integration / 기업 내 다른기종 시스템 연계하여 데이터 통합
+금융 시스템
+	채널계: 사용자가 보는 앱,웹 시스템 / 계정계의 데이터를 보여줌 / 인터넷 뱅킹, ATM 등
+	계정계: 고객 거래 데이터를 처리하는 시스템 / 계좌, 계정 정보 등
+	정보계: 거래 기록을 관리하는 시스템 / 생성되는 데이터 적재, 데이터 관리
+	대외계: 금융기관의 대내외 망을 연결하는 시스템
+DMZ: 내부망, 외부망 중간에 위치해 외부에서 접근하는 웹서버, was, 이메일 서버 등을 운영하는 영역
+ADW: Analytic Data Warehouse / 분석용 데이터
+CRM: Customer Relationship Management / 고객 관계 관리
+서버:
+	AP서버: Application Server / 클라이언트의 요구와 관련된 작업을 처리하는 서버 / Web Server + WAS
+	Web서버: 
+	WAS: Web Application Server (Web 서버 + Container) / DB에서 조회한 데이터를 처리해 컨텐츠를 제공
+	DB서버: Database Server / 데이터 저장 서버. AP서버와 데이터 교류
+NAS: Network Attached Storage / 네트워크에 연결된 저장 장치
+로드 밸런싱: 서버의 부하를 분산하여 가용성 및 응답시간을 최적화 하는 것
+서버 zone 스위치: 여러 서버가 동일 스토리지를 사용할 경우, 서로 접근하지 못하게 막음
+L4 스위치: 로드밸런싱을 처리하는 장비
+티맥스 소프트 web to B: web server
+티맥스 소프트 JEUS: was
+티맥스 TIBERO: RDBMS
+단위테스트: 가장 작은 단위 코드; 함수 등이 정상 작동하는지 확인 / JUnit
+통합테스트: 두개 이상 단위 코드; 모듈간 상호작용이 작동하는 지 확인 
+성능(시스템) 테스트: SW, HW 결합 후 전체 시스템의 기능과 성능 확인 / 성능, 복구, 회복, 안전 점검
+인수(사용자) 테스트: Acceptance Testing; 사용자 관점 평가 / 고객 최종 만족 테스트 / 알파, 베타
+테일러링(Tailoring): 개발 절차, 기법 등을 개발하려는 소프트웨어 특성에 융통성 있게 적용하는 방법론
+gap분석: 목표 설정 후, 실제 성과와의 차이를 파악해 그 차이의 원인을 분석하는 방법
+
+CSR(Client Side Rendering): 클라이언트에서 자바스크립트를 사용해 렌더링되는 것 / 초기 로딩 느림, 새로고침 발생하지 않음
+	사용시기: 네트워크 빠를때, 검색엔진 최적화 필요없을 시, 페이지 상호작용 많을 시 / 유저 프로필 페이지, 결제 내역, 대규모 쇼핑몰, 실시간 업데이트
+SSG(Static Site Gerneration): 서버에 요청 시 이미 만들어진 HTML 파일을 읽어서 보내주는 방식 / 렌더링 매우 빠름
+	사용시기: 데이터가 자주 바뀌지 않을 시 / 블로그, 뉴스 등 정보성 페이지
+SSR(Server Side Rendering): 서버에서 HTML 페이지를 생성하여 클라이언트에게 전달하는 웹 렌더링 방식
+	사용시기: 네트워크 느릴때, 검색엔진 최적화 필요 시, 페이지 상호작용 적을 시 / 상품 상세보기 페이지, 블로그, 뉴스
+	서버에서 완전한 HTML 페이지를 제공하여 검색 엔진이 콘텐츠를 더 쉽게 크롤링하고 인덱싱할 수 있게 하여 SEO 성능을 향상
+	서버 부하 증가, 서버 성능에 따라 페이지 로드 시간 지연 가능
+SEO(Search Engine Optimization): 검색엔진 최적화
+
+# JSP (Java Server Page)
+ - HTML 내부에 JAVA 소스코드가 들어가므로 HTML 코드 작성에 용이 / Servlet은 자바코드 내 HTML코드를 작성하므로 불편
+	JSP로 작성된 프로그램은 서버로 요청시 Servlet 파일로 변환되어 JSP태그를 분해하고 추출하여 다시 HTML를 반환
+
+## MVC 패턴 : Model - View - Controller
+ - Model: 데이터, 비즈니스 로직을 포함, 데이터베이스와의 상호작용
+ - View: 모델에서 가져온 데이터를 바탕으로 사용자에게 표시되는 화면(주로 JSP가 담당)
+ - Controller: 요청을 받아 적절한 모델과 뷰를 연결(주로 Servlet이 모델에서 데이터를 가져와 뷰(JSP)로 전달)
+
+## JSP의 구성요소와 사용법 : EL(표현 언어), Directive, 액션과 사용자 정의 태그, Script, Implicit Object(내장 객체)
+ ### Direcitve : JSP 페이지의 속성이나 전역 설정을 정의하는 요소. JSP 페이지 전체에 영향
+	- JSP page: 페이지 속성 정의(응답의 콘텐츠 타입, import할 클래스 등)
+		<%@ page contentType="text/html; charset=UTF-8" %>
+		<%@ page import="java.util.Date" %>
+	- JSP include: 다른 JSP 파일이나 HTML 파일을 포함할 때 사용. 재사용성을 높이는 설정
+		<%@ include file="header.jsp" %>
+	- JSP taglib: JSP에서 태그 라이브러리를 사용하는 설정
+		<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+		<c:if test="${user != null}"> <p>반갑습니다. ${user.name}님</p> </c:if>
+ ### 내장 객체(Implicit Object): JSP에서 별도 선언 없이 바로 사용할 수 있는 객체. 웹 앱의 주요 기능 제공 / 주로 클라-서버 간 요청-응답을 관리
+	- JSP request: 서버 요청 객체 / <%= request.getRemoteAddr() %>
+	- JSP response: 서버 응답 객체 / <% response.setContentType("text/html; charset=UTF-8"); response.sendRedirect("https://example.com"); %>
+	- JSP session: 세션 객체 / <%= seesion.getAttribute("username") %>
+	- JSP application: 앱 범위의 속성 정보 저장 객체 / <%= application.getAttribute("appName")%>
+	- JSP out: 클라이언트에게 데이터를 출력하는 객체 / <% out.println("<p>HELLO, JSP!</p>")%>
+ ### Script: JSP 페이지에서 JAVA 코드를 작성할 수 있는 요소. HTML과 함께 Java 코드를 삽입해 동적 콘텐츠를 처리
+	- 스크립트릿(Scriptlet) : <%...%>내 작성되어 로직 처리 / <% int a = 10; int b = 20; int sum = a + b %>
+	- 표현식(Expression): <%=...%>내 작성되어 바로 출력 / <p>합계: <%=sum  %></p>
+	- 선언(Declaration): <%!...%>내 작성되어 변수 선언, 메서드 정의 / <%! public String greet(String name) {return "안녕하세요," + name + "님";} %>
+ ### 표현언어(EL): JSP에서 간단한 문법으로 데이터를 출력할 수 있게 하는 표현 언어. 데이터 바인딩을 간결하고 직관적으로 처리하는데 도움
+	- 데이터 검색 순서 : PageContext(페이지 범위) -> Request(요청 범위) -> Session(세션 범위) -> Application(애플리케이션 범위)
+	- example.jsp?username=John -> ${username}
+ ### 액션태그와 사용자 정의 태그: 자주 사용하는 기능을 태그 형태로 재사용 가능
+
+
+
+
+
+		
+
+
+
+
+
+
