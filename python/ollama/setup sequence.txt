@@ -1,0 +1,5 @@
+1. 올라마
+2. 라마
+모델 무결성 확인
+llama model verify-download --model-id Llama3.2-1B
+
